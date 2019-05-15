@@ -5,9 +5,9 @@ const MAXSPEED = 250
 const ACCELERATION = 60
 const JUMP_HEIGHT = -550
 const VOLUME = -40
-
 var motion = Vector2()
 var coins_collected = 0
+
 func _physics_process(delta):
 	var player = AudioStreamPlayer.new()
 	player.volume_db = VOLUME+30
@@ -62,5 +62,6 @@ func _on_Area2D_body_entered(body):
 	coins_collected += 1
 	player.stream = load("res://Sounds/SoundFX/coinpickup.wav")
 	player.play()
+	$Score.text = "Score: "
 	pass # Replace with function body.
 

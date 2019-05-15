@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://World.gd" type="Script" id=1]
 [ext_resource path="res://Backgrounds/sky.png" type="Texture" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://sprites/Blocks/dirt.png" type="Texture" id=10]
 [ext_resource path="res://collect.gd" type="Script" id=11]
 [ext_resource path="res://sprites/Items/coin/0.png" type="Texture" id=12]
+[ext_resource path="res://TimeandSpace-Regular.ttf" type="DynamicFontData" id=13]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -42,6 +43,10 @@ extents = Vector2( 32, 172.069 )
 extents = Vector2( 434.227, 10 )
 
 [sub_resource type="CircleShape2D" id=8]
+
+[sub_resource type="DynamicFont" id=9]
+size = 40
+font_data = ExtResource( 13 )
 
 [node name="World" type="Node2D"]
 position = Vector2( 512, 320 )
@@ -277,6 +282,7 @@ scale = Vector2( 7.00659, 2 )
 texture = ExtResource( 10 )
 
 [node name="Invisible Walls" type="StaticBody2D" parent="."]
+editor/display_folded = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Invisible Walls"]
 position = Vector2( 778.469, -8.86707 )
@@ -311,18 +317,6 @@ shape = SubResource( 7 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Invisible Walls/Area2D"]
 
 [node name="Coin" type="Node2D" parent="."]
-editor/display_folded = true
-
-[node name="Area2D" type="Area2D" parent="Coin"]
-script = ExtResource( 11 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin/Area2D"]
-position = Vector2( -399.897, 69.9722 )
-shape = SubResource( 8 )
-
-[node name="Sprite" type="Sprite" parent="Coin/Area2D"]
-position = Vector2( -400, 70.9224 )
-texture = ExtResource( 12 )
 
 [node name="Area2D2" type="Area2D" parent="Coin"]
 script = ExtResource( 11 )
@@ -335,254 +329,15 @@ shape = SubResource( 8 )
 position = Vector2( -336, 70.9224 )
 texture = ExtResource( 12 )
 
-[node name="Area2D3" type="Area2D" parent="Coin"]
-script = ExtResource( 11 )
+[node name="Node2D" type="Node2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin/Area2D3"]
-position = Vector2( -367.897, 69.9722 )
-shape = SubResource( 8 )
-
-[node name="Sprite" type="Sprite" parent="Coin/Area2D3"]
-position = Vector2( -368, 70.9224 )
-texture = ExtResource( 12 )
-
-[node name="Area2D4" type="Area2D" parent="Coin"]
-script = ExtResource( 11 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin/Area2D4"]
-position = Vector2( -303.897, 69.9722 )
-shape = SubResource( 8 )
-
-[node name="Sprite" type="Sprite" parent="Coin/Area2D4"]
-position = Vector2( -304, 70.9224 )
-texture = ExtResource( 12 )
-
-[node name="Area2D5" type="Area2D" parent="Coin"]
-script = ExtResource( 11 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin/Area2D5"]
-position = Vector2( -271.897, 69.9722 )
-shape = SubResource( 8 )
-
-[node name="Sprite" type="Sprite" parent="Coin/Area2D5"]
-position = Vector2( -272, 70.9224 )
-texture = ExtResource( 12 )
-
-[node name="Area2D6" type="Area2D" parent="Coin"]
-script = ExtResource( 11 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin/Area2D6"]
-position = Vector2( -239.897, 69.9722 )
-shape = SubResource( 8 )
-
-[node name="Sprite" type="Sprite" parent="Coin/Area2D6"]
-position = Vector2( -240, 70.9224 )
-texture = ExtResource( 12 )
-
-[node name="Area2D7" type="Area2D" parent="Coin"]
-script = ExtResource( 11 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin/Area2D7"]
-position = Vector2( -207.897, 69.9722 )
-shape = SubResource( 8 )
-
-[node name="Sprite" type="Sprite" parent="Coin/Area2D7"]
-position = Vector2( -208, 70.9224 )
-texture = ExtResource( 12 )
-
-[node name="Area2D8" type="Area2D" parent="Coin"]
-script = ExtResource( 11 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin/Area2D8"]
-position = Vector2( -207.897, 69.9722 )
-shape = SubResource( 8 )
-
-[node name="Sprite" type="Sprite" parent="Coin/Area2D8"]
-position = Vector2( -208, 70.9224 )
-texture = ExtResource( 12 )
-
-[node name="Area2D9" type="Area2D" parent="Coin"]
-script = ExtResource( 11 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin/Area2D9"]
-position = Vector2( -207.897, 69.9722 )
-shape = SubResource( 8 )
-
-[node name="Sprite" type="Sprite" parent="Coin/Area2D9"]
-position = Vector2( -208, 70.9224 )
-texture = ExtResource( 12 )
-
-[node name="Area2D10" type="Area2D" parent="Coin"]
-script = ExtResource( 11 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin/Area2D10"]
-position = Vector2( -175.897, 69.9722 )
-shape = SubResource( 8 )
-
-[node name="Sprite" type="Sprite" parent="Coin/Area2D10"]
-position = Vector2( -176, 70.9224 )
-texture = ExtResource( 12 )
-
-[node name="Area2D11" type="Area2D" parent="Coin"]
-script = ExtResource( 11 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin/Area2D11"]
-position = Vector2( -143.897, 69.9722 )
-shape = SubResource( 8 )
-
-[node name="Sprite" type="Sprite" parent="Coin/Area2D11"]
-position = Vector2( -144, 70.9224 )
-texture = ExtResource( 12 )
-
-[node name="Area2D12" type="Area2D" parent="Coin"]
-script = ExtResource( 11 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin/Area2D12"]
-position = Vector2( -80, 72.1636 )
-shape = SubResource( 8 )
-
-[node name="Sprite" type="Sprite" parent="Coin/Area2D12"]
-position = Vector2( -80, 72.1636 )
-texture = ExtResource( 12 )
-
-[node name="Area2D13" type="Area2D" parent="Coin"]
-script = ExtResource( 11 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin/Area2D13"]
-position = Vector2( -111.897, 69.9722 )
-shape = SubResource( 8 )
-
-[node name="Sprite" type="Sprite" parent="Coin/Area2D13"]
-position = Vector2( -112, 70.9224 )
-texture = ExtResource( 12 )
-
-[node name="Area2D14" type="Area2D" parent="Coin"]
-script = ExtResource( 11 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin/Area2D14"]
-position = Vector2( -47.8967, 69.9722 )
-shape = SubResource( 8 )
-
-[node name="Sprite" type="Sprite" parent="Coin/Area2D14"]
-position = Vector2( -48, 70.9224 )
-texture = ExtResource( 12 )
-
-[node name="Area2D15" type="Area2D" parent="Coin"]
-script = ExtResource( 11 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin/Area2D15"]
-position = Vector2( -15.8967, 69.9722 )
-shape = SubResource( 8 )
-
-[node name="Sprite" type="Sprite" parent="Coin/Area2D15"]
-position = Vector2( -16, 70.9224 )
-texture = ExtResource( 12 )
-
-[node name="Area2D16" type="Area2D" parent="Coin"]
-script = ExtResource( 11 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin/Area2D16"]
-position = Vector2( 16.1033, 69.9722 )
-shape = SubResource( 8 )
-
-[node name="Sprite" type="Sprite" parent="Coin/Area2D16"]
-position = Vector2( 16, 70.9224 )
-texture = ExtResource( 12 )
-
-[node name="Area2D17" type="Area2D" parent="Coin"]
-script = ExtResource( 11 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin/Area2D17"]
-position = Vector2( 48.1033, 69.9722 )
-shape = SubResource( 8 )
-
-[node name="Sprite" type="Sprite" parent="Coin/Area2D17"]
-position = Vector2( 48, 70.9224 )
-texture = ExtResource( 12 )
-
-[node name="Area2D18" type="Area2D" parent="Coin"]
-script = ExtResource( 11 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin/Area2D18"]
-position = Vector2( 80.1033, 69.9722 )
-shape = SubResource( 8 )
-
-[node name="Sprite" type="Sprite" parent="Coin/Area2D18"]
-position = Vector2( 80, 70.9224 )
-texture = ExtResource( 12 )
-
-[node name="Area2D19" type="Area2D" parent="Coin"]
-script = ExtResource( 11 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin/Area2D19"]
-position = Vector2( 112.103, 69.9722 )
-shape = SubResource( 8 )
-
-[node name="Sprite" type="Sprite" parent="Coin/Area2D19"]
-position = Vector2( 112, 70.9224 )
-texture = ExtResource( 12 )
-
-[node name="Area2D20" type="Area2D" parent="Coin"]
-script = ExtResource( 11 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin/Area2D20"]
-position = Vector2( 144.103, 69.9722 )
-shape = SubResource( 8 )
-
-[node name="Sprite" type="Sprite" parent="Coin/Area2D20"]
-position = Vector2( 144, 70.9224 )
-texture = ExtResource( 12 )
-
-[node name="Area2D21" type="Area2D" parent="Coin"]
-script = ExtResource( 11 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin/Area2D21"]
-position = Vector2( 176.018, 69.9722 )
-shape = SubResource( 8 )
-
-[node name="Sprite" type="Sprite" parent="Coin/Area2D21"]
-position = Vector2( 175.915, 70.9224 )
-texture = ExtResource( 12 )
-[connection signal="body_entered" from="Coin/Area2D" to="Coin/Area2D" method="_on_Area2D_body_entered"]
-[connection signal="body_entered" from="Coin/Area2D" to="Player" method="_on_Area2D_body_entered"]
-[connection signal="body_exited" from="Coin/Area2D" to="Player" method="_on_Area2D_body_exited"]
+[node name="Score" type="Label" parent="Node2D"]
+margin_left = -506.0
+margin_top = -315.0
+margin_right = 10.0
+margin_bottom = -266.0
+custom_fonts/font = SubResource( 9 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 [connection signal="body_entered" from="Coin/Area2D2" to="Coin/Area2D2" method="_on_Area2D_body_entered"]
 [connection signal="body_entered" from="Coin/Area2D2" to="Player" method="_on_Area2D_body_entered"]
-[connection signal="body_entered" from="Coin/Area2D3" to="Coin/Area2D3" method="_on_Area2D_body_entered"]
-[connection signal="body_entered" from="Coin/Area2D3" to="Player" method="_on_Area2D_body_entered"]
-[connection signal="body_entered" from="Coin/Area2D4" to="Player" method="_on_Area2D_body_entered"]
-[connection signal="body_entered" from="Coin/Area2D4" to="Coin/Area2D4" method="_on_Area2D_body_entered"]
-[connection signal="body_entered" from="Coin/Area2D5" to="Player" method="_on_Area2D_body_entered"]
-[connection signal="body_entered" from="Coin/Area2D5" to="Coin/Area2D5" method="_on_Area2D_body_entered"]
-[connection signal="body_entered" from="Coin/Area2D6" to="Player" method="_on_Area2D_body_entered"]
-[connection signal="body_entered" from="Coin/Area2D6" to="Coin/Area2D6" method="_on_Area2D_body_entered"]
-[connection signal="body_entered" from="Coin/Area2D7" to="Player" method="_on_Area2D_body_entered"]
-[connection signal="body_entered" from="Coin/Area2D7" to="Coin/Area2D7" method="_on_Area2D_body_entered"]
-[connection signal="body_entered" from="Coin/Area2D8" to="Player" method="_on_Area2D_body_entered"]
-[connection signal="body_entered" from="Coin/Area2D8" to="Coin/Area2D8" method="_on_Area2D_body_entered"]
-[connection signal="body_entered" from="Coin/Area2D9" to="Player" method="_on_Area2D_body_entered"]
-[connection signal="body_entered" from="Coin/Area2D9" to="Coin/Area2D9" method="_on_Area2D_body_entered"]
-[connection signal="body_entered" from="Coin/Area2D10" to="Player" method="_on_Area2D_body_entered"]
-[connection signal="body_entered" from="Coin/Area2D10" to="Coin/Area2D10" method="_on_Area2D_body_entered"]
-[connection signal="body_entered" from="Coin/Area2D11" to="Player" method="_on_Area2D_body_entered"]
-[connection signal="body_entered" from="Coin/Area2D11" to="Coin/Area2D11" method="_on_Area2D_body_entered"]
-[connection signal="body_entered" from="Coin/Area2D12" to="Player" method="_on_Area2D_body_entered"]
-[connection signal="body_entered" from="Coin/Area2D12" to="Coin/Area2D12" method="_on_Area2D_body_entered"]
-[connection signal="body_entered" from="Coin/Area2D13" to="Player" method="_on_Area2D_body_entered"]
-[connection signal="body_entered" from="Coin/Area2D13" to="Coin/Area2D13" method="_on_Area2D_body_entered"]
-[connection signal="body_entered" from="Coin/Area2D14" to="Player" method="_on_Area2D_body_entered"]
-[connection signal="body_entered" from="Coin/Area2D14" to="Coin/Area2D14" method="_on_Area2D_body_entered"]
-[connection signal="body_entered" from="Coin/Area2D15" to="Player" method="_on_Area2D_body_entered"]
-[connection signal="body_entered" from="Coin/Area2D15" to="Coin/Area2D15" method="_on_Area2D_body_entered"]
-[connection signal="body_entered" from="Coin/Area2D16" to="Player" method="_on_Area2D_body_entered"]
-[connection signal="body_entered" from="Coin/Area2D16" to="Coin/Area2D16" method="_on_Area2D_body_entered"]
-[connection signal="body_entered" from="Coin/Area2D17" to="Player" method="_on_Area2D_body_entered"]
-[connection signal="body_entered" from="Coin/Area2D17" to="Coin/Area2D17" method="_on_Area2D_body_entered"]
-[connection signal="body_entered" from="Coin/Area2D18" to="Player" method="_on_Area2D_body_entered"]
-[connection signal="body_entered" from="Coin/Area2D18" to="Coin/Area2D18" method="_on_Area2D_body_entered"]
-[connection signal="body_entered" from="Coin/Area2D19" to="Player" method="_on_Area2D_body_entered"]
-[connection signal="body_entered" from="Coin/Area2D19" to="Coin/Area2D19" method="_on_Area2D_body_entered"]
-[connection signal="body_entered" from="Coin/Area2D20" to="Player" method="_on_Area2D_body_entered"]
-[connection signal="body_entered" from="Coin/Area2D20" to="Coin/Area2D20" method="_on_Area2D_body_entered"]
-[connection signal="body_entered" from="Coin/Area2D21" to="Player" method="_on_Area2D_body_entered"]
-[connection signal="body_entered" from="Coin/Area2D21" to="Coin/Area2D21" method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="Coin/Area2D2" to="." method="_on_Area2D2_body_entered"]
