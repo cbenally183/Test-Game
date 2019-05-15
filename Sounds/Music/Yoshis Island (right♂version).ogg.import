@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Yoshis Island (right♂version).ogg-c34f0778ae9c626f50d592943e214f4e.oggstr"
+
+[deps]
+
+source_file="res://Sounds/Music/Yoshis Island (right♂version).ogg"
+dest_files=[ "res://.import/Yoshis Island (right♂version).ogg-c34f0778ae9c626f50d592943e214f4e.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
