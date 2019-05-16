@@ -5,8 +5,10 @@ const MAXSPEED = 250
 const ACCELERATION = 60
 const JUMP_HEIGHT = -650
 const VOLUME = -40
+const TYPE = "PLAYER"
 var motion = Vector2()
 var coins_collected = 0
+var alive = 1
 
 func _physics_process(delta):
 	var player = AudioStreamPlayer.new()
@@ -17,7 +19,10 @@ func _physics_process(delta):
 	if is_on_floor():
 		motion.y = 0
 	else:
-		motion.y += GRAVITY
+		if is_on_ceiling():
+			motion.y = 0
+		else:
+			motion.y += GRAVITY
 	
 	#movement x and y direction		
 	if is_on_floor() and Input.is_action_pressed("ui_up") and Input.is_action_pressed("ui_right"):
@@ -50,7 +55,15 @@ func _physics_process(delta):
 		$Sprite.play("idle")
 		motion.x = lerp(motion.x, 0, 0.2)
 		
-		
+	for body in $playerhitbox.get_overlapping_bodies():
+		if body.get("TYPE") == "ENEMY" and alive:
+			player.volume_db = VOLUME+20
+			player.stream = load("res://Sounds/SoundFX/hurt.wav")
+			player.play()
+			alive = 0
+			queue_free()
+			get_node("../UI/Loss").show()
+			
 	#Cap Max Speed
 	if(abs(motion.x) > MAXSPEED):
 		if(motion.x > 0):
@@ -61,20 +74,29 @@ func _physics_process(delta):
 	move_and_slide(motion, UP)
 
 func _on_Area2D_body_entered(body):
-	var player = AudioStreamPlayer.new()
-	self.add_child(player)
-	player.volume_db = VOLUME+15
-	coins_collected += 1
-	get_node("../UI/Score").text = "Score: " + str(coins_collected*100)
-	player.stream = load("res://Sounds/SoundFX/coinpickup.wav")
-	player.play()
+	if body.get("TYPE") == TYPE:
+		var player = AudioStreamPlayer.new()
+		self.add_child(player)
+		player.volume_db = VOLUME+15
+		coins_collected += 1
+		get_node("../UI/Score").text = "Score: " + str(coins_collected*100)
+		player.stream = load("res://Sounds/SoundFX/coinpickup.wav")
+		player.play()
+	else:
+		pass
 
 
 
 func _on_hitbox_body_entered(body):
-	var player = AudioStreamPlayer.new()
-	player.volume_db = VOLUME+40
-	player.stream = load("res://Sounds/SoundFX/hurt.wav")
-	player.play()
-	#get_node("../UI/Loss").show()
+	if body.get("type") == "ENEMY":
+		var player = AudioStreamPlayer.new()
+		player.volume_db = VOLUME+40
+		player.stream = load("res://Sounds/SoundFX/hurt.wav")
+		player.play()
+		print("touched")
+		get_node("../UI/Loss").show()
+	else:
+		pass
 	
+
+

@@ -1,0 +1,1 @@
+var paused = 0

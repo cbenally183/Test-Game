@@ -2,6 +2,7 @@ extends KinematicBody2D
 const UP = Vector2(0,-1)
 const GRAVITY = 20
 const MAXSPEED = 30
+const TYPE = "ENEMY"
 var motion = Vector2()
 
 func _physics_process(delta):
@@ -11,6 +12,8 @@ func _physics_process(delta):
 	else:
 		motion.y += GRAVITY
 	
+			
+		
 	#movement x and y direction		
 	motion.x = -MAXSPEED
 	move_and_slide(motion, UP)

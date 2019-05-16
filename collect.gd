@@ -3,5 +3,8 @@ extends Area2D
 
 
 func _on_Area2D_body_entered(body):
-	queue_free()
+	if body.get("TYPE") == "PLAYER":
+		queue_free()
+	else:
+		pass
 	pass # Replace with function body.

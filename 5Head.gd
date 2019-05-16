@@ -2,6 +2,7 @@ extends KinematicBody2D
 const UP = Vector2(0,-1)
 const GRAVITY = 20
 const MAXSPEED = 30
+const TYPE = "ENEMY"
 var motion = Vector2()
 
 
