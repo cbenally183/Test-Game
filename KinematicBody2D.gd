@@ -59,14 +59,22 @@ func _physics_process(delta):
 			motion.x = -MAXSPEED
 		
 	move_and_slide(motion, UP)
-	pass
 
 func _on_Area2D_body_entered(body):
 	var player = AudioStreamPlayer.new()
 	self.add_child(player)
 	player.volume_db = VOLUME+15
 	coins_collected += 1
+	get_node("../UI/Score").text = "Score: " + str(coins_collected*100)
 	player.stream = load("res://Sounds/SoundFX/coinpickup.wav")
 	player.play()
-	pass # Replace with function body.
 
+
+
+func _on_hitbox_body_entered(body):
+	var player = AudioStreamPlayer.new()
+	player.volume_db = VOLUME+40
+	player.stream = load("res://Sounds/SoundFX/hurt.wav")
+	player.play()
+	#get_node("../UI/Loss").show()
+	

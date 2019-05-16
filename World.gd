@@ -6,3 +6,4 @@ func _ready():
 	player.stream = load("res://Sounds/Music/Yoshis Island (right♂version).ogg")
 	player.volume_db = -20
 	player.play()
+	
