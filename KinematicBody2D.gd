@@ -56,7 +56,8 @@ func _physics_process(delta):
 		motion.x = lerp(motion.x, 0, 0.2)
 		
 	for body in $playerhitbox.get_overlapping_bodies():
-		if body.get("TYPE") == "ENEMY" and alive:
+		if (body.get("TYPE") == "ENEMY" or body.get("TYPE") == "DEATHAREA") and alive:
+			print("Body: " + str(body))
 			player.volume_db = VOLUME+20
 			player.stream = load("res://Sounds/SoundFX/hurt.wav")
 			player.play()
@@ -84,19 +85,3 @@ func _on_Area2D_body_entered(body):
 		player.play()
 	else:
 		pass
-
-
-
-func _on_hitbox_body_entered(body):
-	if body.get("type") == "ENEMY":
-		var player = AudioStreamPlayer.new()
-		player.volume_db = VOLUME+40
-		player.stream = load("res://Sounds/SoundFX/hurt.wav")
-		player.play()
-		print("touched")
-		get_node("../UI/Loss").show()
-	else:
-		pass
-	
-
-
