@@ -8,7 +8,7 @@ const VOLUME = -40
 const TYPE = "PLAYER"
 var motion = Vector2()
 var coins_collected = 0
-var alive = 1
+var alive = 2
 
 func _physics_process(delta):
 	var player = AudioStreamPlayer.new()
@@ -61,7 +61,7 @@ func _physics_process(delta):
 			player.volume_db = VOLUME+20
 			player.stream = load("res://Sounds/SoundFX/hurt.wav")
 			player.play()
-			alive = 0
+			alive = 1
 			queue_free()
 			get_node("../UI/Loss").show()
 			
