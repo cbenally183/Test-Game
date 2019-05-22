@@ -85,3 +85,10 @@ func _on_Area2D_body_entered(body):
 		player.play()
 	else:
 		pass
+
+
+func _on_finish_body_entered(body):
+	if body.get("TYPE") == "ENDAREA":
+		print("Touched Finish Area")
+	else:
+		pass # Replace with function body.
