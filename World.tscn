@@ -1,4 +1,4 @@
-[gd_scene load_steps=86 format=2]
+[gd_scene load_steps=87 format=2]
 
 [ext_resource path="res://World.gd" type="Script" id=1]
 [ext_resource path="res://background.gd" type="Script" id=2]
@@ -128,6 +128,9 @@ font_data = SubResource( 12 )
 
 [sub_resource type="RectangleShape2D" id=14]
 extents = Vector2( 60, 310 )
+
+[sub_resource type="RectangleShape2D" id=22]
+extents = Vector2( 50, 175.778 )
 
 [sub_resource type="ConvexPolygonShape2D" id=15]
 points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
@@ -271,15 +274,12 @@ position = Vector2( 2687, 40 )
 texture = ExtResource( 3 )
 
 [node name="Sky5" type="Sprite" parent="background"]
-position = Vector2( 3967, 32.3965 )
+position = Vector2( 3967, 40 )
 texture = ExtResource( 3 )
 
 [node name="Player" type="KinematicBody2D" parent="."]
 position = Vector2( -224, -32 )
 script = ExtResource( 4 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="Sprite" type="AnimatedSprite" parent="Player"]
 position = Vector2( -216.016, 325.588 )
@@ -310,6 +310,7 @@ limit_bottom = 0
 smoothing_enabled = true
 
 [node name="Coin" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="coin0" type="Area2D" parent="Coin"]
 editor/display_folded = true
@@ -1311,7 +1312,7 @@ script = ExtResource( 12 )
 position = Vector2( 720.175, 280 )
 scale = Vector2( 0.166982, 0.164938 )
 frames = SubResource( 5 )
-frame = 12
+frame = 13
 playing = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="enemies/5Head"]
@@ -1333,6 +1334,7 @@ script = ExtResource( 12 )
 position = Vector2( 148, 81.2227 )
 scale = Vector2( 0.13177, 0.13505 )
 frames = SubResource( 5 )
+frame = 1
 playing = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="enemies/5Head2"]
@@ -1354,7 +1356,7 @@ script = ExtResource( 37 )
 position = Vector2( -224.086, 96.738 )
 scale = Vector2( 0.126852, 0.103998 )
 frames = SubResource( 7 )
-frame = 4
+frame = 8
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="enemies/Billy"]
@@ -1377,7 +1379,7 @@ script = ExtResource( 37 )
 position = Vector2( 87.2688, -90 )
 scale = Vector2( 0.119923, 0.100888 )
 frames = SubResource( 7 )
-frame = 4
+frame = 8
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="enemies/Billy2"]
@@ -1393,7 +1395,6 @@ position = Vector2( 159.393, 295.348 )
 shape = SubResource( 9 )
 
 [node name="UI" type="CanvasLayer" parent="."]
-editor/display_folded = true
 
 [node name="Score" type="Label" parent="UI"]
 margin_left = 12.1188
@@ -1424,6 +1425,17 @@ text = "You Lose!"
 align = 1
 valign = 1
 
+[node name="Win" type="Label" parent="UI"]
+visible = false
+margin_left = -4.0
+margin_right = 1280.0
+margin_bottom = 386.0
+custom_fonts/font = SubResource( 13 )
+custom_colors/font_color = Color( 0.756863, 0.0431373, 0.0431373, 1 )
+text = "Finished!"
+align = 1
+valign = 1
+
 [node name="PauseScreen" type="Label" parent="UI"]
 visible = false
 margin_left = -4.0
@@ -1436,13 +1448,18 @@ align = 1
 valign = 1
 
 [node name="endarea" type="StaticBody2D" parent="."]
+editor/display_folded = true
 script = ExtResource( 63 )
 
 [node name="finish" type="Area2D" parent="endarea"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="endarea/finish"]
-position = Vector2( 1988, 10 )
+position = Vector2( 1997, -0.341492 )
 shape = SubResource( 14 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="endarea"]
+position = Vector2( 1987, 180 )
+shape = SubResource( 22 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource( 21 )
